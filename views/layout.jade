@@ -1,0 +1,14 @@
+doctype html
+html(ng-app="callidus")
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='/socket.io/socket.io.js')
+    script(src='/angular/angular.js')
+    script(src='/angular-route/angular-route.js')
+    script(src='/angular-socket-io/socket.js')
+    script(src='/javascripts/app.js')
+    script(src='/javascripts/controllers.js')
+
+  body
+    block content

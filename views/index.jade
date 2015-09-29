@@ -1,0 +1,8 @@
+extends layout
+
+block content
+    div(ng-controller="callidus_controller")
+        h1= title
+        p Welcome to #{title}
+        br
+        button(id="rele001" ng-click="releControl('rele001')"  ) Rele001

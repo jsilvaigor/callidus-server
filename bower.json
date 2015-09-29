@@ -1,0 +1,24 @@
+{
+  "name": "callidus-server",
+  "version": "0.0.1",
+  "authors": [
+    "Igor Silva <igorjose15@gmail.com>"
+  ],
+  "description": "A home automation server application",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#~1.4.6",
+    "angular-socket-io": "~0.7.0",
+    "angular-route": "~1.4.6"
+  }
+}
