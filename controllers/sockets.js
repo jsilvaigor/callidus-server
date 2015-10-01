@@ -3,14 +3,16 @@
  */
 var boardControl = require("./boardControl");
 
+
 module.exports = function(io) {
 
     io.sockets.on('connection', function (socket) {
+        socket.on('connected',function(){
+
+        });
+
         socket.on('join', function(data) {
-            console.log(data);
-            boardControl.getStatus(function(status){
-                socket.emit(status);
-            })
+            console.log("Cliente");
         });
 
         socket.on('acionado',function(data){
@@ -18,5 +20,12 @@ module.exports = function(io) {
                 socket.emit('resposta',data);
             })
         })
+
+        socket.on('getStatus',function(){
+            boardControl.getStatus(function(status){
+                socket.emit('status',status);
+            })
+        })
+
     });
 };

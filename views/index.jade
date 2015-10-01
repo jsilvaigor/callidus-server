@@ -1,8 +1,18 @@
 extends layout
 
 block content
-    div(ng-controller="callidus_controller")
+    div(ng-controller="callidus_controller" data-ng-init="getReleStatus()")
         h1= title
         p Welcome to #{title}
         br
-        button(id="rele001" ng-click="releControl('rele001')"  ) Rele001
+        br
+        button(id="rele001" ng-click="releControl('rele001')" ) Rele001
+        br
+        br
+        button(id="rele002" ng-click="releControl('rele002')"  ) Rele002
+        br
+        br
+        button(id="rele003" ng-click="releControl('rele003')" disabled=true ) Rele003
+        br
+        br
+        button(id="status" ng-click="getReleStatus()"  ) Get Status
