@@ -37,7 +37,7 @@ board.on("ready", function() {
 
     proximidade = new five.Proximity({
         controller: "HCSR04",
-        pin: 7,
+        pin: 9,
         freq: 250
     });
 
