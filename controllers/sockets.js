@@ -16,7 +16,7 @@ module.exports = function(io) {
         });
 
         socket.on('acionado',function(data){
-            boardControl.releControl(data.rele, function (data) {
+            boardControl.releControl(data.relay, function (data) {
                 socket.emit('resposta',data);
             })
         })

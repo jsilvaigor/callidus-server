@@ -4,7 +4,8 @@
 var five = require("johnny-five");
 var board = new five.Board();
 var relays = {};
-var relay001, rele002, rele003, proximidade;
+var sensors = {}
+var relay001, relay002, relay003, proximidade,iluminacao;
 var countDataPerto = 0;
 var countDataLonge = 0;
 
@@ -72,23 +73,40 @@ board.on("ready", function() {
 
        }
     });
+
+    sensors['proximidade'] = proximidade;
+
+    luminosidade = new five.Sensor("A0");
+
+    luminosidade.scale(0, 10).on("change", function() {
+        if(this.value > 8){
+            //console.log(this.value);
+        }
+    });
+
+    sensors['luminosidade'] = luminosidade;
 });
 
 function releControl(rele,callback){
     var releLocal;
-    if(rele == 'rele001'){
+    if(rele == 'relay001'){
         releLocal = relay001
-    }else if(rele == 'rele002'){
+    }else if(rele == 'relay002'){
         releLocal = relay002
-    }else if(rele == 'rele003'){
+    }else if(rele == 'relay003'){
         releLocal = relay003
     }
 
     releLocal.toggle();
     var resposta = {
-        rele: releLocal.id,
+        relay: releLocal.id,
         ligado: releLocal.isOn
+    };
+
+    if(sensors.luminosidade.value > 8){
+        resposta['dia'] = true;
     }
+
     cursor.hex("#9A32CD").write(releLocal.id + ": ").fg.reset();
     if(releLocal.isOn){
         cursor.green().write("Ligado \n").fg.reset();
