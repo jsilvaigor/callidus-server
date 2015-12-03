@@ -5,7 +5,7 @@ var five = require("johnny-five");
 var board = new five.Board();
 var relays = {};
 var sensors = {}
-var relay001, relay002, relay003, proximidade,iluminacao;
+var relay001, relay002, relay003, proximidade,luminosidade;
 var countDataPerto = 0;
 var countDataLonge = 0;
 
